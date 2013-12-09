@@ -1,23 +1,12 @@
+require 'forwardable'
+
 class Deque
   attr_accessor :queue
 
-  def initialize
-    self.queue = []
-  end
+   extend Forwardable
+   def_delegators :@queue, :push, :pop, :unshift, :shift
 
-  def push(el)
-    queue.push(el)
-  end
-
-  def pop
-    queue.pop
-  end
-
-  def unshift(el)
-    queue.unshift(el)
-  end
-
-  def shift
-    queue.shift
-  end
+   def initialize
+     self.queue = []
+   end
 end
