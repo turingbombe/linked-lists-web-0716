@@ -1,7 +1,7 @@
 require_relative 'spec_helper'
 require_relative 'linked_list'
 
-describe 'Deque' do
+describe Deque do
 
   it 'can push and pop' do
     deque = Deque.new

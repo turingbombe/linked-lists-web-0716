@@ -24,6 +24,16 @@ class Element
     temp
   end
 
+  def to_a
+    temp = []
+    current = self
+    while current
+      temp << current.datum
+      current = current.next
+    end
+    temp
+  end
+
   def reverse
     # reverses the elements connected via next
     return Element.new(self.next.datum, self) if self.next
@@ -31,17 +41,21 @@ class Element
   end
 
   def self.from_a(array)
-    return nil if array.empty?
+    return nil if array.size == 0
     current = nil
-    array.each_with_index do |value, i|
-      next_elem = array[i+1] || nil
-      begin
-        current = Element.new(value, Element.new(next_elem))
-      rescue
-        binding.pry
+    next_elem = nil
+    root = nil
+    array.each do |value|
+      if current
+        next_elem = Element.new(value, nil)
+        current.next = next_elem
+        current = next_elem
+      else
+        current = Element.new(value, nil)
+        root = current
       end
     end
-    current
+    root
   end
 
 end
