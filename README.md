@@ -1,7 +1,7 @@
-----
+---
 tags: data structures, linked lists
 languages: ruby
-----
+---
 
 The linked list is a fundamental data structure in computer science, often used in the implementation of other data structures. They're pervasive in functional programming languages, such as Clojure, Erlang, or Haskell, but far less common in imperative languages such as Ruby or Python.
 
