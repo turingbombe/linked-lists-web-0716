@@ -35,9 +35,7 @@ class Element
   end
 
   def reverse
-    # reverses the elements connected via next
-    return Element.new(self.next.datum, self) if self.next
-    self
+    Element.from_a(Element.to_a(self).reverse)
   end
 
   def self.from_a(array)

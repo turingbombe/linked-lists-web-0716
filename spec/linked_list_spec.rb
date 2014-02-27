@@ -1,5 +1,5 @@
 require_relative 'spec_helper'
-require_relative 'linked_list'
+require_relative '../linked-lists/linked_list'
 
 describe Deque do
 
