@@ -15,7 +15,7 @@ The simplest kind of linked list is an immutable singly-linked list, which is th
 
 This variant of linked lists is often used to represent sequences or push-down stacks (also called a LIFO stack; Last In, First Out), a data structure that can be visualized like a can of Pringles. You can only access the topmost element in the stack, and it's always the most recently added.
 
-## Definitions
+### Definitions
 
 **Immutable** - data that cannot be changed. An immutable data structure
 can only be created or destroyed but not changed by an external actor.
@@ -119,6 +119,12 @@ Another way to visualize it would be like this: `A <- B <- C <- D`. Keep
 in mind that we are still implementing only `next` in this list, even
 though the directionality appears to indicate a `previous` style
 relationship. In a singly-linked list, there is only one direction.
+
+### 4 - Conclusion
+
+Once you've done the above, all of your specs in
+`spec/simple_linked_list_spec.rb` will be passing! We will then use this
+`Element` class in the next part - implementing a Deque.
 
 # Resources
 
