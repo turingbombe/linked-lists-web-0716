@@ -1,7 +1,7 @@
-----
+---
 tags: data structures, linked lists, computer science
 languages: ruby
-----
+---
 
 # Objective
 

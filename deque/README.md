@@ -1,7 +1,7 @@
-----
+---
 tags: data structures, linked lists, stack, deque, computer science
 languages: ruby
-----
+---
 
 # Objective
 
