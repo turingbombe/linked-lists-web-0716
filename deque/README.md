@@ -63,6 +63,9 @@ element, so that we ensure our list integrity in a single operation
 rather than having to perform both operations every time (and
 potentially forgetting!)
 
+This action of having each node know both `next` and `previous` nodes
+transforms it from a *singly-linked list* to a *doubly-linked list*.
+
 ### 2 - Deque
 
 Now we make the Deque. The second `describe` block in
