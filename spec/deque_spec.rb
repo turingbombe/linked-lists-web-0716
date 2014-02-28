@@ -1,5 +1,36 @@
 require_relative 'spec_helper'
-require_relative '../linked-lists/linked_list'
+require_relative '../deque/deque'
+require_relative '../simple-lists/simple_linked_list'
+
+describe Element do
+  let(:one) {Element.new(1, nil)}
+  let(:two) {Element.new(2, nil)}
+  let(:three) {Element.new(3, nil)}
+
+  it 'has a writeable next attribute' do
+    one.next = two
+    expect(one.next).to eq(two)
+  end
+
+  it 'has a writeable previous attribute' do
+    one.previous = two
+    expect(one.previous).to eq(two)
+  end
+
+  it "sets up next and previous automatically when either is set" do
+    #setting next should set previous on next element
+    one.next = two
+    expect(one.previous).to eq(nil)
+    expect(two.previous).to eq(1)
+    expect(two.next).to eq(nil)
+
+    #setting previous should set next on previous element
+    three.previous = two
+    expect(two.next).to eq(three)
+    expect(three.previous.previous).to eq(one)
+  end
+
+end
 
 describe Deque do
 
