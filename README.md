@@ -1,31 +1,45 @@
-----
-tags: data structures, linked lists
+---
+tags: data structures, linked lists, stack, deque, computer science
 languages: ruby
-----
+---
+
+# Objective
+
+Implement an immutable singly-linked list, a mutable doubly-linked list,
+and a double-ended queue (deque) in Ruby.
+
+# Introduction
+
+This lab will take you through creating three fundamental data
+structures in Ruby.
 
 The linked list is a fundamental data structure in computer science, often used in the implementation of other data structures. They're pervasive in functional programming languages, such as Clojure, Erlang, or Haskell, but far less common in imperative languages such as Ruby or Python.
 
-The simplest kind of linked list is an immutable linked list, which is the kind that's built-in to these functional programming languages. Immutable (or more specifically: persistent) data structures can be copied in constant time (since a reference is equivalent to a copy), and can save loads of time and memory for certain use cases because structure can be shared between versions of the data structure.
+The simplest kind of linked list is an immutable *singly-linked list*, which is the kind that's built-in to these functional programming languages. In a singly-linked list, each node only understands the next node.
 
-This variant of linked lists is often used to represent sequences or push-down stacks (also called a LIFO stack; Last In, First Out).
+Singly-linked lists are used to represent sequences or push-down (LIFO -
+Last-in, First-out) stack structures.
 
-As a first take, lets create a persistent linked list with just Element objects containing the range (1..10), and provide functions to reverse a linked list and convert to and from arrays.
+The next thing you'll create is a *doubly-linked list*. In a doubly-linked
+list, each node understands both the next node, and the previous nodes.
 
-When implementing this in a language with built-in linked lists, implement your own abstract data type.
+This variant of linked lists can be used to represent queues and other
+data structures.
 
-Examples (Ruby):
+The final thing you'll create is a *double-ended queue* (or *deque* -
+prounounced "deck"). You'll build the deque on top of your doubly-linked
+list.
 
-    Element.to_a(nil) #=> []
-    Element.from_a([]) #=> nil
-    Element.reverse(nil) #=> nil
-    one = Element.new(1, nil)
-    one #=> <Element @datum=1, @next=nil>
-    one.datum #=> 1
-    one.next #=> nil
-    two = Element.new(2, one)
-    two #=> <Element @datum=2, @next=<Element @datum=1 @next=nil>>
-    Element.to_a(two) #=> [2, 1]
-    Element.reverse(two) #=> <Element @datum=1 @next=<Element @datum=2 @next=nil>>
-    range = Element.from_a(1..10)
-    range.datum #=> 1
-    range.next.next.next.next.next.next.next.next.next.next.datum #=> 10
+# Lab Steps
+
+Fork and clone this repository.
+
+This lab has two parts. The first is found in the `simple-lists` folder.
+Follow the instructions in `simple-lists/README.md` and use the specs in
+`spec/simple_linked_list_spec.rb` as your guide.
+
+Once you've completed the simple lists step, move to the instructions
+found in `deque/README.md` and use the specs in `spec/deque_spec.rb` as
+your guide.
+
+Once you've completed the lab and all your tests pass, commit and issue a pull request.

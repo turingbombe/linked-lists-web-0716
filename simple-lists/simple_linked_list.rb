@@ -1,17 +1,21 @@
 class Element
-  attr_accessor :datum, :next_elem
+
+  attr_reader :datum, :next, :previous
 
   def initialize(datum, next_elem)
     @datum = datum
     @next_elem = next_elem
+    next_elem.previous = self if next_elem
   end
 
-  def next
-    self.next_elem
+  def previous=(node)
+    @previous = node
+    node.next = self unless node == nil || node.next == self
   end
 
   def next=(elem)
-    self.next_elem = elem
+    @next = elem
+    elem.previous = self unless elem == nil
   end
 
   def self.to_a(elem)
@@ -35,9 +39,7 @@ class Element
   end
 
   def reverse
-    # reverses the elements connected via next
-    return Element.new(self.next.datum, self) if self.next
-    self
+    Element.from_a(Element.to_a(self).reverse)
   end
 
   def self.from_a(array)
@@ -57,5 +59,4 @@ class Element
     end
     root
   end
-
 end
