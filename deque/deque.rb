@@ -1,6 +1,7 @@
 require_relative '../simple-lists/simple_linked_list'
 
 class Deque
+  attr_reader :list
 
   def push(datum)
     @list = Element.new(datum, @list)
