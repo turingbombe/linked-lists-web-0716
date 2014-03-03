@@ -21,13 +21,19 @@ describe Element do
     #setting next should set previous on next element
     one.next = two
     expect(one.previous).to eq(nil)
-    expect(two.previous).to eq(1)
+    expect(two.previous).to eq(one)
     expect(two.next).to eq(nil)
 
     #setting previous should set next on previous element
     three.previous = two
     expect(two.next).to eq(three)
     expect(three.previous.previous).to eq(one)
+  end
+
+  it "sets previous on initialize" do
+    new_element = Element.new(2, one)
+    expect(new_element.next).to eq(one)
+    expect(one.previous).to eq(new_element)
   end
 
 end
@@ -54,8 +60,11 @@ describe Deque do
     deque = Deque.new
     deque.unshift(10)
     deque.unshift(20)
+    deque.unshift(30)
+    expect(deque.shift).to eq(30)
     expect(deque.shift()).to  eq(20)
     expect(deque.shift()).to  eq(10)
+
   end
 
   it 'can unshift and pop' do
