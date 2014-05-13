@@ -1,6 +1,6 @@
 ---
-tags: data structures, linked lists, stack, deque, computer science
-languages: ruby
+  tags: data structures, linked lists, stack, deque, computer science
+  languages: ruby
   resources: 1
 ---
 
