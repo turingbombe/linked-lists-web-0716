@@ -1,6 +1,7 @@
 ---
 tags: data structures, linked lists, stack, deque, computer science
 languages: ruby
+  resources: 1
 ---
 
 # Objective
@@ -43,3 +44,7 @@ found in `deque/README.md` and use the specs in `spec/deque_spec.rb` as
 your guide.
 
 Once you've completed the lab and all your tests pass, commit and issue a pull request.
+
+## Resources
+* [Wikipedia](http://en.wikipedia.org/) - [Linked List](http://en.wikipedia.org/wiki/Linked_list)
+* [Matt Weppler's Blog](http://matt.weppler.me/) - [Implementing a Linked List](http://matt.weppler.me/2013/08/14/implementing-a-linked-list-in-ruby.html)
