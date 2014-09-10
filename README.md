@@ -4,7 +4,7 @@
   resources: 2
 ---
 
-# Objective
+## Objective
 
 Implement an immutable singly-linked list, a mutable doubly-linked list,
 and a double-ended queue (deque) in Ruby.
