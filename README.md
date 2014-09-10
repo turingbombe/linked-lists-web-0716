@@ -9,7 +9,7 @@
 Implement an immutable singly-linked list, a mutable doubly-linked list,
 and a double-ended queue (deque) in Ruby.
 
-# Introduction
+## Introduction
 
 This lab will take you through creating three fundamental data
 structures in Ruby.
@@ -31,7 +31,7 @@ The final thing you'll create is a *double-ended queue* (or *deque* -
 prounounced "deck"). You'll build the deque on top of your doubly-linked
 list.
 
-# Lab Steps
+## Lab Steps
 
 Fork and clone this repository.
 
