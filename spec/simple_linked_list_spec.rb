@@ -1,6 +1,3 @@
-require_relative 'spec_helper'
-require_relative '../simple-lists/simple_linked_list'
-
 describe 'Simple Singly-Linked Lists' do
   let(:one) { Element.new(1, nil) }
   let(:two) { Element.new(2, one) }

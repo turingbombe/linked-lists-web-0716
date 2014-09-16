@@ -1,14 +1,15 @@
 ---
-tags: data structures, linked lists, stack, deque, computer science
-languages: ruby
+  tags: data structures, linked lists, stack, deque, computer science
+  languages: ruby
+  resources: 2
 ---
 
-# Objective
+## Objective
 
 Implement an immutable singly-linked list, a mutable doubly-linked list,
 and a double-ended queue (deque) in Ruby.
 
-# Introduction
+## Introduction
 
 This lab will take you through creating three fundamental data
 structures in Ruby.
@@ -30,7 +31,7 @@ The final thing you'll create is a *double-ended queue* (or *deque* -
 prounounced "deck"). You'll build the deque on top of your doubly-linked
 list.
 
-# Lab Steps
+## Lab Steps
 
 Fork and clone this repository.
 
@@ -43,3 +44,7 @@ found in `deque/README.md` and use the specs in `spec/deque_spec.rb` as
 your guide.
 
 Once you've completed the lab and all your tests pass, commit and issue a pull request.
+
+## Resources
+* [Wikipedia](http://en.wikipedia.org/) - [Linked List](http://en.wikipedia.org/wiki/Linked_list)
+* [Matt Weppler's Blog](http://matt.weppler.me/) - [Implementing a Linked List](http://matt.weppler.me/2013/08/14/implementing-a-linked-list-in-ruby.html)
