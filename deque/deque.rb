@@ -1,41 +1,39 @@
-require_relative '../simple-lists/simple_linked_list'
-
 class Deque
-  attr_reader :list
-
+  attr_accessor :list
+ 
+  def initialize
+    @list = nil
+  end
+ 
   def push(datum)
-    @list = Element.new(datum, @list)
-  end
-
-  def pop
-    return nil if @list.nil?
-    datum = @list.datum
-    @list = @list.next
-    datum
-  end
-
-  def shift
-    return nil if @list.nil?
-    current = @list
-    datum = current.datum
-    while current.next != nil
-      current = current.next
-      datum = current.datum
-    end
-    current.previous.next = nil if current.previous != nil
-    datum
-  end
-
-  def unshift(datum)
-    elem = Element.new(datum, nil)
-    if @list != nil
-      current = @list
-      while current.next != nil
-        current = current.next
-      end
-      current.next = elem
+    if self.list
+      last_element = self.list.get_last_element
+      last_element.next = Element.new(datum)
     else
-      @list = elem
+      self.list = Element.new(datum)
     end
+    self.list
   end
+ 
+  def pop
+    second_to_last_element, last_element = self.list.get_last_two_elements
+    last_element.previous = nil if last_element
+    second_to_last_element.next = nil if second_to_last_element
+    last_element.datum
+  end
+ 
+  def shift
+    old_head = self.list
+    if self.list.next
+      self.list = old_head.next
+      self.list.previous = nil
+    end
+    old_head.next = nil
+    old_head.datum
+  end
+ 
+  def unshift(datum)
+    self.list = Element.new(datum, self.list)
+  end
+ 
 end
