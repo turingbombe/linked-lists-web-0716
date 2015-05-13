@@ -1,3 +1,4 @@
+require 'pry'
 describe 'Simple Singly-Linked Lists' do
   let(:one) { Element.new(1, nil) }
   let(:two) { Element.new(2, one) }
@@ -49,9 +50,17 @@ describe 'Simple Singly-Linked Lists' do
       expect(one_r.datum).to eq(1)
       expect(one_r.next).to be_nil
 
+      # ensure that nothing changed about the given objects
+      expect(one.datum).to eq(1)
+      expect(one.next).to be_nil
+
       two_r = two.reverse
       expect(two_r.datum).to eq(1)
       expect(two_r.next.datum).to eq(2)
+
+      # ensure that nothing changed about the given objects
+      expect(two.datum).to eq(2)
+      expect(two.next).to eq(one)
 
       three_r = three.reverse
       expect(three_r.datum).to eq(1)
@@ -59,15 +68,8 @@ describe 'Simple Singly-Linked Lists' do
       expect(three_r.next.next.datum).to eq(3)
 
       # ensure that nothing changed about the given objects
-      expect(one.datum).to eq(1)
-      expect(one.next).to be_nil
-
-      expect(two.datum).to eq(2)
-      expect(two.next).to eq(one)
-
       expect(three.datum).to eq(3)
       expect(three.next).to eq(two)
     end
-
 
 end
