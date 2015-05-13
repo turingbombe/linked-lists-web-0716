@@ -92,10 +92,10 @@ describe Deque do
   it 'uses Element under the hood' do
     deque = Deque.new
     expect(deque.list).to eq(nil)
-    deque.push 10
+    deque.push(10)
     expect(deque.list.datum).to eq(10)
     expect(deque.list.next).to eq(nil)
-    deque.push 20
+    deque.unshift(20)
     expect(deque.list.datum).to eq(20)
     expect(deque.list.next.datum).to eq(10)
   end
