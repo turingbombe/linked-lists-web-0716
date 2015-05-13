@@ -45,31 +45,28 @@ describe 'Simple Singly-Linked Lists' do
   end
 
   it 'reverses the elements' do
-      # one_r and @one need not be the same object
-      one_r = one.reverse
-      expect(one_r.datum).to eq(1)
-      expect(one_r.next).to be_nil
+    # one_r and @one need not be the same object
+    one_r = one.reverse
+    expect(one_r.datum).to eq(1)
+    expect(one_r.next).to be_nil
 
-      # ensure that nothing changed about the given objects
-      expect(one.datum).to eq(1)
-      expect(one.next).to be_nil
+    two_r = two.reverse
+    expect(two_r.datum).to eq(1)
+    expect(two_r.next.datum).to eq(2)
 
-      two_r = two.reverse
-      expect(two_r.datum).to eq(1)
-      expect(two_r.next.datum).to eq(2)
+    three_r = three.reverse
+    expect(three_r.datum).to eq(1)
+    expect(three_r.next.datum).to eq(2)
+    expect(three_r.next.next.datum).to eq(3)
 
-      # ensure that nothing changed about the given objects
-      expect(two.datum).to eq(2)
-      expect(two.next).to eq(one)
+    # ensure that nothing changed about the given objects
+    expect(one.datum).to eq(1)
+    expect(one.next).to be_nil
 
-      three_r = three.reverse
-      expect(three_r.datum).to eq(1)
-      expect(three_r.next.datum).to eq(2)
-      expect(three_r.next.next.datum).to eq(3)
+    expect(two.datum).to eq(2)
+    expect(two.next).to eq(one)
 
-      # ensure that nothing changed about the given objects
-      expect(three.datum).to eq(3)
-      expect(three.next).to eq(two)
-    end
-
+    expect(three.datum).to eq(3)
+    expect(three.next).to eq(two)
+  end
 end
