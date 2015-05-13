@@ -39,7 +39,17 @@ class Element
   end
 
   def reverse
-    Element.from_a(Element.to_a(self).reverse)
+    current = Element.new(self.datum, nil)
+    if self.next
+      next_element = Element.new(self.next.datum, self.next.next)
+    end
+    while next_element
+      next_next_element = next_element.next
+      new_next_element = Element.new(next_element.datum, current)
+      current = new_next_element
+      next_element = next_next_element
+    end
+    current
   end
 
   def self.from_a(array)
