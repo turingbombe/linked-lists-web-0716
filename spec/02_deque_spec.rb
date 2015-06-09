@@ -40,11 +40,18 @@ end
 
 describe Deque do
 
+  it 'is initialized with a list attribute' do
+    deque = Deque.new
+    expect(deque.list).to eq(nil)
+  end
+
   it 'can push and pop' do
     deque = Deque.new
     deque.push(10)
     deque.push(20)
+    expect(deque.list.datum).to eq(10)
     expect(deque.pop()).to eq(20)
+    expect(deque.list.datum).to eq(10)
     expect(deque.pop()).to eq(10)
   end
 
@@ -52,7 +59,9 @@ describe Deque do
     deque = Deque.new
     deque.push(10)
     deque.push(20)
+    expect(deque.list.datum).to eq(10)
     expect(deque.shift()).to eq(10) 
+    expect(deque.list.datum).to eq(20)
     expect(deque.shift()).to eq(20) 
   end
 
@@ -61,8 +70,10 @@ describe Deque do
     deque.unshift(10)
     deque.unshift(20)
     deque.unshift(30)
+    expect(deque.list.datum).to eq(30)
     expect(deque.shift).to eq(30)
     expect(deque.shift()).to  eq(20)
+    expect(deque.list.datum).to eq(10)    
     expect(deque.shift()).to  eq(10)
 
   end
@@ -71,8 +82,10 @@ describe Deque do
     deque = Deque.new
     deque.unshift(10)
     deque.unshift(20)
-    expect(deque.pop()).to  eq(10)
-    expect(deque.pop()).to  eq(20)
+    expect(deque.list.datum).to eq(20)
+    expect(deque.pop()).to eq(10)
+    expect(deque.list.datum).to eq(20)
+    expect(deque.pop()).to eq(20)
   end
 
   it 'works with a full example' do
