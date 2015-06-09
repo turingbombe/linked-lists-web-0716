@@ -42,7 +42,7 @@ describe Deque do
 
   it 'is initialized with a list attribute' do
     deque = Deque.new
-    deque.list = nil
+    expect(deque.list).to eq(nil)
   end
 
   it 'can push and pop' do
