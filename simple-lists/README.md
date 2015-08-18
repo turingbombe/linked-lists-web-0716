@@ -1,8 +1,3 @@
----
-tags: data structures, linked lists, computer science
-languages: ruby
----
-
 # Objective
 
 Implement an immutable singly-linked list in Ruby
@@ -17,19 +12,9 @@ This variant of linked lists is often used to represent sequences or push-down s
 
 ### Definitions
 
-**Immutable** - data that cannot be changed. An immutable data structure
-can only be created or destroyed but not changed by an external actor.
-Immutable structures are great for multi-threaded operations because
-there is little danger of unexpected side-effects changing the object.
+**Immutable** - data that cannot be changed. An immutable data structure can only be created or destroyed but not changed by an external actor. Immutable structures are great for multi-threaded operations because there is little danger of unexpected side-effects changing the object.
 
-**Constant Time** - when operation time is independent of problem size,
-that operation is a *constant time* (or *O(1) time*) operation.
-Accessing an element at a given index of an array is a constant time
-operation, because no matter how big an array is, it doesn't affect the
-time required to access an element by position. Finding the maximum
-element of an array, on the other hand, is not a constant time
-operation, because a full scan of the elements is required and the time
-required to complete that scan grows with the number of elements.
+**Constant Time** - when operation time is independent of problem size, that operation is a *constant time* (or *O(1) time*) operation. Accessing an element at a given index of an array is a constant time operation, because no matter how big an array is, it doesn't affect the time required to access an element by position. Finding the maximum element of an array, on the other hand, is not a constant time operation, because a full scan of the elements is required and the time required to complete that scan grows with the number of elements.
 
 # Lab Steps
 
@@ -39,10 +24,7 @@ As a first take, lets create a persistent singly-linked list with just Element o
 
 When implementing this in a language with built-in linked lists, implement your own abstract data type.
 
-We want to create an `Element` class that represents a node in a
-singly-linked list. An `Element` only understands two things: `datum` -
-the piece of information that `Element` holds, and `next`, which is a
-reference to the next item in the list.
+We want to create an `Element` class that represents a node in a singly-linked list. An `Element` only understands two things: `datum` - the piece of information that `Element` holds, and `next`, which is a reference to the next item in the list.
 
 Examples (Ruby):
 ```
@@ -57,34 +39,21 @@ node2.next #=> node1
 node2.next.datum #=> 1
 node2.next.next #=> nil
 ```
-Those last two lines above illustrate the linked list. Node 1 has a
-piece of data, and no link to another element. As far as it knows, it's
-the only node in the world.
+Those last two lines above illustrate the linked list. Node 1 has a piece of data, and no link to another element. As far as it knows, it's the only node in the world.
 
-Node 2, on the other hand, has a piece of data and a link to Node 1.
-Node 2 doesn't know how big this list is, but it can direct you to the
-next guy no problem and let it tell you what comes after that.
+Node 2, on the other hand, has a piece of data and a link to Node 1. Node 2 doesn't know how big this list is, but it can direct you to the next guy no problem and let it tell you what comes after that.
 
 ### 2 - Convert List to and from Array
 
-Next we need to turn the list into an ordered array of the datum of each
-of our elements.  
-However, because this is an immutable list, we don't want to change any
-of our elements. Using the example above, it should look like this:
+Next we need to turn the list into an ordered array of the datum of each of our elements. However, because this is an immutable list, we don't want to change any of our elements. Using the example above, it should look like this:
 
 `Element.to_a(node2) #=> [2,1]`
 
-Remember that in this singly-linked list, each element just knows the
-next element, so if we turn node1 into an array, even though node2 is
-linked to node1, we'd expect this:
+Remember that in this singly-linked list, each element just knows the next element, so if we turn node1 into an array, even though node2 is linked to node1, we'd expect this:
 
 `Element.to_a(node1) #=> [1]`
 
-After we can convert to an array, we want to be able to build a
-singly-linked list from an array as well. The assumption would be that
-each index represents a new node where the `datum` is the value of the
-array at that index, and that that node's `next` element is an element
-created from the value of the following array index.
+After we can convert to an array, we want to be able to build a singly-linked list from an array as well. The assumption would be that each index represents a new node where the `datum` is the value of the array at that index, and that that node's `next` element is an element created from the value of the following array index.
 
 ```
 arr = [3,2,1]
@@ -96,35 +65,23 @@ range.datum #=> 1
 range.next.next.next.next.next.next.next.next.next.next.datum #=> 10
 ```
 
-Finally, we should be able to convert an element to an array, then
-create a new element from that array, and its structure should be the
-same as the original element.
+Finally, we should be able to convert an element to an array, then create a new element from that array, and its structure should be the same as the original element.
 
 ### 3 - Reverse the List
 
 Finally, we want to be able to reverse a list from a given element.  
 
-If we envision the list as a piece of data (`datum`) and a *pointer* to
-the next element, then reversing a list is a matter of reversing the
-pointers while retaining the data.
+If we envision the list as a piece of data (`datum`) and a *pointer* to the next element, then reversing a list is a matter of reversing the pointers while retaining the data.
 
 If we have a list with elements `A,B,C,D` that looks like this:
-`A -> B -> C -> D`, then reversing that list at element A would make it
-this:
-`D -> C -> B -> A`. Essentially, the `next` of each element is reversed, so where
-D used to have a `next` of `nil`, it now has a `next` of C. Where A once
-had a `next` of B, it now has a `next` of `nil`.
+`A -> B -> C -> D`, then reversing that list at element A would make it this:
+`D -> C -> B -> A`. Essentially, the `next` of each element is reversed, so where D used to have a `next` of `nil`, it now has a `next` of C. Where A once had a `next` of B, it now has a `next` of `nil`.
 
-Another way to visualize it would be like this: `A <- B <- C <- D`. Keep
-in mind that we are still implementing only `next` in this list, even
-though the directionality appears to indicate a `previous` style
-relationship. In a singly-linked list, there is only one direction.
+Another way to visualize it would be like this: `A <- B <- C <- D`. Keep in mind that we are still implementing only `next` in this list, even though the directionality appears to indicate a `previous` style relationship. In a singly-linked list, there is only one direction.
 
 ### 4 - Conclusion
 
-Once you've done the above, all of your specs in
-`spec/simple_linked_list_spec.rb` will be passing! We will then use this
-`Element` class in the next part - implementing a Deque.
+Once you've done the above, all of your specs in `spec/simple_linked_list_spec.rb` will be passing! We will then use this `Element` class in the next part - implementing a Deque.
 
 # Resources
 
