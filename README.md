@@ -37,3 +37,5 @@ Once you've completed the lab and all your tests pass, commit and issue a pull r
 ## Resources
 * [Wikipedia](http://en.wikipedia.org/) - [Linked List](http://en.wikipedia.org/wiki/Linked_list)
 * [Matt Weppler's Blog](http://matt.weppler.me/) - [Implementing a Linked List](http://matt.weppler.me/2013/08/14/implementing-a-linked-list-in-ruby.html)
+
+<a href='https://learn.co/lessons/linked-lists' data-visibility='hidden'>View this lesson on Learn.co</a>
