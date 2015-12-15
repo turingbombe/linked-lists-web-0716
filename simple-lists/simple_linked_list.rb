@@ -1,85 +1,53 @@
-class Element
-  
-  def self.to_a(element)
-    container = []
-    return container if element.nil?
-    pointer = element
-    while pointer.datum
-      container << pointer.datum
-      pointer.next ? pointer = pointer.next : break
-    end
-    container
+class Node
+  attr_accessor :data, :next
+
+  def initialize(data, next_node = nil)
+    @data = data
+    @next = next_node
   end
- 
-  def self.from_a(array)
-    head = nil
-    array.each do |val|
-      if head.nil?
-        head = self.new(val)
-      else
-        last_element = head.get_last_element
-        last_element.next = Element.new(val)
+end
+
+class LinkedList
+  attr_accessor :head
+
+  def initialize(data)
+    @head = Node.new(data)
+  end
+
+  def index_at(index)
+    current_pointer = head
+    index.times do 
+      return nil unless current_pointer.next
+      current_pointer = current_pointer.next
+    end
+    current_pointer.data
+  end
+
+  def insert_at_index(index, data)
+    current_pointer = self.head
+    (1..index - 1).each do |number|
+      if current_pointer.next.nil? && (index != number)
+        current_pointer.next = Node.new(nil, nil)
       end
+      current_pointer = current_pointer.next
     end
-    head
-  end
-  
-  attr_accessor :datum, :value
-  attr_reader :next, :previous
- 
-  def next=(element)
-    @next = element
-    if element && element.previous.nil?
-      element.previous = self
+    if current_pointer
+      old_next = current_pointer.next 
+      current_pointer.next = Node.new(data, old_next) 
     end
   end
- 
-  def previous=(element)
-    @previous = element
-    if element && element.next.nil?
-      element.next = self
+
+  def unshift(data)
+    current_pointer = self.head
+    self.head = Node.new(data)
+    self.head.next = current_pointer 
+  end
+
+  def push(data)
+    current_pointer = head
+    while current_pointer.next
+      current_pointer = current_pointer.next
     end
+    current_pointer.next = Node.new(data, nil)
   end
- 
-  def initialize(datum, next_one=nil)
-    @datum = datum
-    self.next=(next_one)
-  end
- 
-  def to_a
-    self.class.to_a(self)
-  end
- 
-  def reverse
-    current = Element.new(self.datum, nil)
-    if self.next
-      next_element = Element.new(self.next.datum, self.next.next)
-    end
-    while next_element
-      next_next_element = next_element.next
-      new_next_element = Element.new(next_element.datum, current)
-      current = new_next_element
-      next_element = next_next_element
-    end
-    current
-  end
- 
-  def get_last_two_elements
-    last_element = self
-    second_to_last_element = nil
-    while last_element.next
-      second_to_last_element = last_element
-      last_element = last_element.next
-    end
-    [second_to_last_element, last_element]
-  end
- 
-  def get_last_element
-    last_element = self
-    while last_element.next
-      last_element = last_element.next
-    end
-    last_element
-  end
- 
 end
