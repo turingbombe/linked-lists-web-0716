@@ -24,8 +24,6 @@ When implementing this in a language with built-in linked lists, implement your 
 
 We want to create a `Node` class that represents a node in a singly-linked list. An `Node` only understands two things: `data` - the piece of information that `Node` holds, and `next`, which is a reference to the next item in the list.
 
-```
-
 ### 2 - Basic LL CRUD methods
 
 Day-to-Day users won't be interacting with our `Node` class, they will be interacting with a new layer of abstraction housed in a `LinkedList` class. Your `LinkedList` class should have the following methods. Remember NO USING ARRAYS.
