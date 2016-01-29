@@ -57,3 +57,5 @@ http://en.wikipedia.org/wiki/Linked_list
 http://cjlwired.github.io/blog/2013/08/08/linked-lists-and-ruby/
 http://en.wikipedia.org/wiki/Singly_linked_list#Singly_linked_lists
 http://en.wikipedia.org/wiki/Doubly_linked_list
+
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/linked-lists' title='Objective'>Objective</a> on Learn.co and start learning to code for free.</p>
